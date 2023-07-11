@@ -1,2 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Shadows+Into+Light&display=swap');
+*{
+    margin: 0;
+    padding: 0%;
+}
 
+body {
+    background-color: #00192b;
+    height: 100%;
+    color: #eee;
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+.clearfix{
+    clear: both;
+}
+
+/*******************HEADER************************/
+header{
+    background-color: #00192b;
+    color: white;
+
+    display: flex;
+
+    padding: 50px;
+
+}
+
+/*******************ENCABEZADO************************/
+.encabezado a{
+    display: flex;
+    text-decoration: none;
+    margin-right: 430px;
+}
+
+.encabezado img{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+}
+
+.encabezado p{
+    margin-left: 20px;
+    margin-top: 15px;
+    font-size: 50px;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+}
+/*******************NAVEGADOR************************/
+nav{
+    height: 50px;
+}
+
+/*Apariencia*/
+.links {
+    background-color: rgb(6, 29, 58);
+    background-image: linear-gradient(to bottom, #0003, tranparent);
+    border-bottom: 1px solid #0003;
+    box-shadow: 0 0 32px #0003;
+    font-size: 2em;
+    font-weight: 300;
+
+    display: grid;
+    grid-template-columns: repeat(var(--items), 1fr);
+    position: relative;
+}
+
+.links > a {
+    color: rgb(255, 255, 255);
+    padding: .75em;
+    text-align: center;
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.links > a:hover {
+    background-color: #ffffff;
+    color: #00192b;
+}
 
