@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 *{
     margin: 0;
     padding: 0%;
 }
 
 body {
-    background-color: #00192b;
-    height: 100%;
-    color: #eee;
-    font-size: 62.5%;
-    box-sizing: border-box;
+    background: #A770EF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FDB99B, #CF8BF3, #A770EF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 .clearfix{
@@ -17,35 +19,36 @@ body {
 }
 
 /*******************HEADER************************/
-header{
-    background-color: #00192b;
-    color: white;
+#header{
+    background-color: #C560DB;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
 
+#identificador{
     display: flex;
 
-    padding: 50px;
-
 }
 
-/*******************ENCABEZADO************************/
-.encabezado a{
+#identificador #name{
+    /* font-family: ; */
+    padding-top: 24px;
+    padding-left: 15px;
+    font-size: 26px;
+}
+
+#identificador #logo img{
+    height: 85px;
+    width: 85px;
+}
+
+#iconos{
     display: flex;
-    text-decoration: none;
-    margin-right: 430px;
-}
-
-.encabezado img{
-    height: 90px;
-    width: 90px;
-    border-radius: 50%;
-}
-
-.encabezado p{
-    margin-left: 20px;
-    margin-top: 15px;
     font-size: 50px;
-    color: white;
-    font-family: 'Bebas Neue', cursive;
+}
+
+#iconos a{
+    margin-left: 25px;
 }
 /*******************NAVEGADOR************************/
 nav{
@@ -54,20 +57,16 @@ nav{
 
 /*Apariencia*/
 .links {
-    background-color: rgb(6, 29, 58);
-    background-image: linear-gradient(to bottom, #0003, tranparent);
-    border-bottom: 1px solid #0003;
-    box-shadow: 0 0 32px #0003;
-    font-size: 2em;
+    font-size: 25px;
     font-weight: 300;
-
+    font-family: 'Poppins', sans-serif;
     display: grid;
     grid-template-columns: repeat(var(--items), 1fr);
     position: relative;
 }
 
 .links > a {
-    color: rgb(255, 255, 255);
+    color: black;
     padding: .75em;
     text-align: center;
     text-decoration: none;
@@ -75,7 +74,48 @@ nav{
 }
 
 .links > a:hover {
-    background-color: #ffffff;
-    color: #00192b;
+    color: #b33e95;
 }
 
+/*******************FOOTER************************/
+#tex_foot{
+    text-align: center;
+    color: black;
+    background-color: #C560DB;
+    font-size: 22px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+
+}
+
+
+/*******************INDEX************************/
+
+#border_index{
+    width: 1780px;
+    background-color: #614570;
+    height: 3px;
+    margin: 30px;
+}
+
+#space_banner{
+    height: 200px;
+    margin-bottom: 25px;
+}
+
+#space_banner img{
+    height: 230px;
+    margin-bottom: 25px;
+}
+
+.post_it{
+    height: 60px;
+    width: 60px;
+}
+
+.text_ind{
+    font-size: 35px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    margin-bottom: 60px;
+}
