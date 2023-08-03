@@ -45,14 +45,16 @@ body {
 #iconos{
     display: flex;
     font-size: 50px;
+    margin-top: 12px;
 }
 
 #iconos a{
     margin-left: 25px;
 }
 /*******************NAVEGADOR************************/
-nav{
+#principal_menu{
     height: 50px;
+    margin-top: 20px;
 }
 
 /*Apariencia*/
@@ -105,12 +107,15 @@ nav{
 
 #space_banner img{
     height: 230px;
-    margin-bottom: 25px;
 }
 
-.post_it{
-    height: 60px;
-    width: 60px;
+.post_text{
+    padding-top: 50px;
+}
+
+.post_it img{
+    height: 250px;
+    width: 250px;
 }
 
 .text_ind{
@@ -118,4 +123,59 @@ nav{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
     margin-bottom: 60px;
+}
+
+/*******************PRODUCTOS************************/
+
+
+/*******************PEDIDOS************************/
+#tit_pedido{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-left: 500px;
+}
+
+#btn_pedido{
+    margin-left: 580px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+/*******************NOSOTROS************************/
+#tit_nosotros{
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    margin-bottom: 40px;
+}
+
+#img_nosotros{
+    margin-bottom: 50px;
+}
+
+#nues_historia{
+    margin-bottom: 60px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*******************CONTACTO************************/
+#tit_contacto{
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+    margin-bottom: 40px;
+}
+
+.elem_contacto{
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    bottom: -30px;
+}
+
+.elem_contacto i{
+    margin-right: 30px;
+    font-size: 120px;
 }

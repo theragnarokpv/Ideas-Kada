@@ -9,8 +9,21 @@
         <header th:replace="~{layouts/plantilla :: header}">
             
         </header>
-        
-        <section th:replace="~{pedido/fragmento :: listadoPedidos}"/>
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+
+            <div class="col-md-8">
+                <section th:replace="~{pedido/fragmento :: nuevoPedido}"/>
+            </div>
+
+            <div class="col-md-2">
+
+            </div>
+
+        </div>
         
         <footer th:replace="~{layouts/plantilla :: footer}">
             

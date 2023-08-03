@@ -11,7 +11,7 @@
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css}" rel="stylesheet" >
+        <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css}" rel="stylesheet" />
     </head>
     <body>
         <header th:fragment="header" id="header" class="row">
@@ -27,36 +27,46 @@
                 </div>
             </div>
 
-            <nav class="links col-md-6" style="--items: 5;">
-                <a th:href="@{/}">
-                    INICIO
-                </a>
-        
-                <a th:href="@{/producto/listado}">
-                    PRODUCTOS
-                </a>
-        
-                <a th:href="@{/nosotros}">
-                    NOSOTROS
-                </a>
-        
-                <a href="">
-                    CONTACTO
-                </a>
-
-                <a th:href="@{/pedido/listado}">
-                    PEDIDOS
-                </a>
+            <nav id="principal_menu" class="navbar navbar-expand-lg bg-body-tertiary links col-md-5" style="--items: 5;">
+                <ul class="navbar-nav" sec:authorize="hasRole('ROLE ADMIN') or hasRole('ROLE VENDEDOR')">
+                    <li class="nav-item px-2"><a class="nav-link active" th:href="@{/}">
+                        INICIO
+                    </a></li>
+                    
+                    <li class="nav-item px-2"><a class="nav-link active" th:href="@{/producto/listado}">
+                        PRODUCTOS
+                    </a></li>
+                    
+                    <li class="nav-item px-2"><a class="nav-link active" th:href="@{/nosotros/conocenos}">
+                        NOSOTROS
+                    </a></li>
+                    
+                    <li class="nav-item px-2"><a class="nav-link active" th:href="@{/contacto/principal}">
+                        CONTACTO
+                    </a></li>
+                    
+                    <li class="nav-item dropdown" sec:authorize="hasRole('ROLE ADMIN')">
+                    <a class="nav-link dropdown-toggle" 
+                       data-bs-toggle="dropdown" 
+                       href="#" 
+                       role="button" 
+                       aria-expanded="false">ADMINISTRACION</a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" th:href="@{/pedido/listado}">PEDIDOS</a></li>
+                        <li><a class="dropdown-item"  th:href="@{/producto/listado}">PRODUCTOS</a></li>
+                        <li><a class="dropdown-item"  th:href="@{/pruebas/listado2}">USUARIOS</a></li>
+                    </ul>
+                </li>
             </nav>
 
-            <div class="col-md-1"></div>
+            <div class="col-md-2"></div>
 
             <div id="iconos" class="col-md-2">
                 <a class="nav-link"  >
                     <i class="bi bi-person-fill"></i>
                 </a>
 
-                <a class="nav-link"  >
+                <a class="nav-link"  th:href="@{/pedido/orden}" >
                     <i class="bi bi-cart"></i>
                 </a>
             </div>

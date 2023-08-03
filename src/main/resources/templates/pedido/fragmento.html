@@ -10,7 +10,9 @@
         <section th:fragment="nuevoPedido">
             <div id="nuevoPedido">
                 <div class="row">
-                        Realiza su compra
+                        <div id="tit_pedido">
+                            Realiza su compra
+                        </div>
                     
                         <form th:action="@{/pedido/guardar}" th:object="${pedido}"
                               method="POST" class="was-validated" enctype="multipart/form-data">
@@ -18,8 +20,8 @@
                                 <div class="mb-3">
                                     <label for="idTipo">Seleccione el tipo quie gusta:</label>
                                     <select id="tipo.idTipo" class="form-select" aria-label="defaul select example">
-                                        <option th:each="c : ${tipos}" th:value="${c.idTipo}"
-                                                th:text="${c.descripcion}">
+                                        <option th:each="t : ${tipos}" th:value="${t.idTipo}"
+                                                th:text="${t.descripcion}">
                                         </option>
                                             
                                     </select>
@@ -34,7 +36,7 @@
                                     <input type="text" class="form-control" name="telefono" required="true"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="correo">Telefono</label>
+                                    <label for="correo">Correo Electronico</label>
                                     <input type="text" class="form-control" name="correo" required="true"/>
                                 </div>
                                 <div class="mb-3">
@@ -47,7 +49,7 @@
                                     <img id="blah" src="#" alt="your image" height="200"/>
                                 </div>
                             </div>
-                                <button class="btn btn-primary" type="submit">Enviar</button>
+                                <button id="btn_pedido" class="btn btn-primary" type="submit">Enviar</button>
                         </form>
                     </div>
                 </div>
@@ -59,25 +61,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="col-md-4 card">
+                        <div class="col-md-12 card">
                             <div class="card-header">
-                                <h4>Lista de productos</h4>
+                                <h4>Lista de pedidos</h4>
                             </div>
                             <div th:if="${pedidos != null and !pedidos.empty}">
                                 <table class="table table-striped table-hover">
                                     <thead class="table-dark">
                                         <tr><th>#</th>
+                                            <th>Nombre</th>
                                             <th>Descripcion</th>
-                                            <th>Activo</th>
-                                            <th>Categoria]</th>
                                             <th>Imagen</th>
                                             <th></th></tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="pedido, contador : ${pedidos}">
+                                        <tr class="table" th:each="pedido, contador : ${pedidos}">
                                             <td>[[${contador.count}]]</td>
+                                            <td>[[${pedido.nombre}]]</td>
                                             <td>[[${pedido.descripcion}]]</td>
-                                            <td th:text="${pedido.activo} ? 'Activa' : 'Inactiva'" />
                                             <td><img id="blah" th:src="@{${pedido.rutaImagen}}" alt="your image" height="200"/></td>
                                             <td><a th:href="@{/pedido/eliminar/}+${pedido.idPedido}"
                                                    class="btn btn-danger">

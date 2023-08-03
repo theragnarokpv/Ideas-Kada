@@ -1,10 +1,8 @@
 package com.proyecto.controller;
 
 import com.proyecto.domain.Pedido;
-import com.proyecto.domain.Producto;
-import com.proyecto.service.CategoriaService;
+import com.proyecto.service.TipoService;
 import com.proyecto.service.PedidoService;
-import com.proyecto.service.ProductoService;
 import com.proyecto.service.impl.FirebaseStorageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,10 +29,15 @@ public class PedidoController {
 @Autowired
 private PedidoService pedidoService;
 
+@Autowired
+private TipoService tipoService;
+
 @GetMapping("/listado")
 public String listado(Model model){
     var pedidos = pedidoService.getPedidos(false);
     model.addAttribute("pedidos", pedidos);
+    var tipos = tipoService.getTipos(false);
+    model.addAttribute("tipos", tipos);
     model.addAttribute("totalPedidos", pedidos.size());
     
     return "/pedido/listado";
@@ -47,21 +50,6 @@ public String listado(Model model){
 
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
-    
-    @PostMapping("/guardar")
-    public String productoGuardar(Pedido pedido,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {        
-        if (!imagenFile.isEmpty()) {
-            pedidoService.save(pedido);
-            pedido.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile, 
-                            "producto", 
-                            pedido.getIdPedido()));
-        }
-        pedidoService.save(pedido);
-        return "redirect:/pedido/listado";
-    }
 
     @GetMapping("/eliminar/{idProducto}")
     public String productoEliminar(Pedido pedido) {
@@ -74,6 +62,32 @@ public String listado(Model model){
         pedido = pedidoService.getPedido(pedido);
         model.addAttribute("pedido", pedido);
         return "/pedido/modifica";
+    }
+    
+
+
+@GetMapping("/orden")
+    public String pedidoNuevo(Pedido pedido, Model model) {
+        var tipos = tipoService.getTipos(false);
+        model.addAttribute("tipos", tipos);
+
+        return "/pedido/orden";
+    }
+
+
+    @PostMapping("/guardar")
+    public String productoGuardar(Pedido pedido,
+            @RequestParam("imagenFile") MultipartFile imagenFile) {        
+        if (!imagenFile.isEmpty()) {
+            pedidoService.save(pedido);
+            pedido.setRutaImagen(
+                    firebaseStorageService.cargaImagen(
+                            imagenFile, 
+                            "pedido", 
+                            pedido.getIdPedido()));
+        }
+        pedidoService.save(pedido);
+        return "/pedido/orden";
     }
     
 }
