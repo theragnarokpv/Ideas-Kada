@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaft.org"
+     xmlns:sec="http://www.thymeleaft.org/thymeleaf-extras-springsecurity6">
+    <head th:replace="~{layouts/plantilla :: head}">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:replace="~{layouts/plantilla :: header}">
+            
+        </header>
+        
+        <div class="container">
+            <div class="row"></div>
+            <div class="row row-cols-6">
+                <a th:href="@{/}" class="btn btn-primary">
+                    <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                </a>
+            </div>
+        </div>
+        
+        <div class="row row-cols-3">
+            <div class="card">
+                <div class="card-header text center">
+                    Reporte Clientes
+                </div>
+                <div class="card-body">
+                    <a th:href="@{/reportes/usuarios?tipo=vPdf}" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> <i class="fas fa-file-pdf"></i> 
+                    </a>
+                    <a th:href="@{/reportes/usuarios?tipo=vPdf}" class="btn btn-success">
+                        <i class="fas fa-download"></i> <i class="fas fa-file-pdf"></i> 
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header text center">
+                    Reporte Ventas
+                </div>
+                <div class="card-body">
+                    <a th:href="@{/reportes/ventas?tipo=vPdf}" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> <i class="fas fa-file-pdf"></i> 
+                    </a>
+                    <a th:href="@{/reportes/ventas?tipo=vPdf}" class="btn btn-success">
+                        <i class="fas fa-download"></i> <i class="fas fa-file-pdf"></i> 
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <footer th:replace="~{layouts/plantilla :: footer}">
+            
+        </footer>
+    </body>
+</html>

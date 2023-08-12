@@ -19,6 +19,13 @@
                             <i class="fas fa-plus"></i> Agregar Producto
                         </button>
                     </div>
+                    <div class="col-md-3">
+                        <button 
+                            type="button" 
+                            class="btn btn-secondary btn-block">
+                            <a id="button_cate" th:href="@{/categoria/listado}"><i class="bi bi-eye-fill"></i> Ver Categorias</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -32,27 +39,26 @@
                  aria-hidden="true">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
-                        <div class="modal-header bg-secondary text-white">
-                            <h5 class="modal-title">Agregar Producto</h5>
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">[[#{producto.agregar}]]</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
                         <form th:action="@{/producto/guardar}" th:object="${producto}"
                               method="POST" class="was-validated" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="idCategoria">Categoria</label>
-                                    <select id="categoria.idCategoria" class="form-select" aria-label="defaul select example">
-                                        <option th:each="c : ${categorias}" th:value="${c.idCategoria}"
-                                                th:text="${c.descripcion}">
-                                        </option>
-                                            
-                                    </select>
+                                    <label for="idCategoria">[[#{producto.categoria}]]</label>
+                                    <select class="form-select" aria-label="Default select example"                                                                            
+                                            name="categoria.idCategoria">
+                                        <option th:each="categoria : ${categorias}"
+                                                th:value="${categoria.idCategoria}">[[${categoria.descripcion}]]</option>   
+                                    </select>  
 
                                 </div>
                                 <div class="mb-3">
-                                    <label for="descripcion">Descripcion</label>
+                                    <label for="descripcion">[[#{producto.descripcion}]]</label>
                                     <input type="text" class="form-control" name="descripcion" required="true"/>
-                                </div>
+                                </div> 
                                 <div class="mb-3">
                                     <label for="activo">[[#{producto.activo}]]</label>
                                     <input class="form-check-input" type="checkbox" name="activo" id="activo"/>
@@ -138,6 +144,15 @@
                                                 <h4>[[#{accion.actualizar}]]</h4>
                                             </div>
                                             <div class="card-body">
+                                                <div class="mb-3">   
+                                                    <select class="form-select" aria-label="Default select example"                                                                            
+                                                            name="idCategoria"
+                                                            th:field="*{categoria.idCategoria}">
+                                                        <option th:each="categoria : ${categorias}"
+                                                                th:value="${categoria.idCategoria}">[[${categoria.descripcion}]]</option>   
+                                                    </select>                             
+                                                </div>
+                                                
                                                 <div class="mb-3">
                                                     <label for="descripcion">[[#{producto.descripcion}]]</label>
                                                     <input type="text" class="form-control" 
@@ -187,6 +202,33 @@
                         <button type="submit" class="btn btn-success">
                             <i class="fas fa-check"></i> [[#{accion.guardar}]]
                         </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- 6 Fragmento que se utilizara en vista -->
+        <section th:fragment="vistaProductos" id="productos">
+            <div class="container">
+                <div class="row row-cols-1">
+                    <h2 id="tit_prod" class="inline text-center">MUESTRAS DE NUESTROS PRODUCTOS</h2>
+                </div>
+
+
+                <div class="row row-cols-3" th:if="${productos != null and !productos.empty}">
+                    <div class="col_prod" th:each="producto : ${productos}">
+                        <div class="col-md-1">
+
+                        </div>
+
+
+                        <div class="card text-bg-dark">
+                            <img class="card-img" th:src="@{${producto.rutaImagen}}" alt="alt" height="300px"/>
+                            <div class="card-img-overlay">
+                              <h5 class="card-title">[[${producto.descripcion}]]</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

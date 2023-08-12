@@ -18,6 +18,11 @@ body {
     clear: both;
 }
 
+#button_cate{
+    text-decoration:none;
+    color: white;
+}
+
 /*******************HEADER************************/
 #header{
     background-color: #C560DB;
@@ -126,7 +131,10 @@ body {
 }
 
 /*******************PRODUCTOS************************/
-
+#tit_prod{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
 /*******************PEDIDOS************************/
 #tit_pedido{
@@ -140,6 +148,10 @@ body {
     margin-left: 580px;
     margin-bottom: 20px;
     font-size: 20px;
+}
+
+.col_prod{
+    margin-bottom: 30px;
 }
 
 /*******************NOSOTROS************************/

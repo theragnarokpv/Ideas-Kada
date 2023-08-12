@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaft.org">
+      xmlns:th="http://www.thymeleaft.org"
+      xmlns:sec="http://www.thymeleaft.org/thymeleaf-extras-springsecurity6">
     <head th:fragment="head">
         <title>Ideas Kada</title>
         <meta charset="UTF-8"/>
@@ -33,7 +34,7 @@
                         INICIO
                     </a></li>
                     
-                    <li class="nav-item px-2"><a class="nav-link active" th:href="@{/producto/listado}">
+                    <li class="nav-item px-2"><a class="nav-link active" th:href="@{/producto/vista}">
                         PRODUCTOS
                     </a></li>
                     
@@ -54,7 +55,8 @@
                     <ul class="dropdown-menu dropdown-menu-dark">
                         <li><a class="dropdown-item" th:href="@{/pedido/listado}">PEDIDOS</a></li>
                         <li><a class="dropdown-item"  th:href="@{/producto/listado}">PRODUCTOS</a></li>
-                        <li><a class="dropdown-item"  th:href="@{/pruebas/listado2}">USUARIOS</a></li>
+                        <li><a class="dropdown-item"  th:href="@{/usuario/listado}">USUARIOS</a></li>
+                        <li><a class="dropdown-item"  th:href="@{/reportes/principal}">Reportes</a></li>
                     </ul>
                 </li>
             </nav>
@@ -62,7 +64,7 @@
             <div class="col-md-2"></div>
 
             <div id="iconos" class="col-md-2">
-                <a class="nav-link"  >
+                <a class="nav-link" th:href="@{/login}">
                     <i class="bi bi-person-fill"></i>
                 </a>
 

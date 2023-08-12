@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaft.org"
-        xmlns:sec="http://www.thymeleaft.org/thymeleaf-extras-springsecurity6">
+     xmlns:sec="http://www.thymeleaft.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layouts/plantilla :: head}">
         <title>TODO supply a title</title>
         <meta charset="UTF-8"/>
@@ -9,10 +9,11 @@
         <header th:replace="~{layouts/plantilla :: header}">
             
         </header>
-        <section th:replace="~{pedido/fragmento :: nuevoPedido}"/>
+
+        <section th:replace="~{producto/fragmento :: vistaProductos}"/>
         
-        <footer th:replace="~{layouts/plantilla :: footer}">
+        <header th:replace="~{layouts/plantilla :: footer}">
             
-        </footer>
+        </header>
     </body>
 </html>

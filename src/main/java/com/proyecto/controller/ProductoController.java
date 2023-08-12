@@ -42,7 +42,7 @@ public String listado(Model model){
     return "/producto/listado";
 }
 
-@GetMapping("/nuevo")
+    @GetMapping("/nuevo")
     public String productoNuevo(Producto producto) {
         return "/producto/modifica";
     }
@@ -73,9 +73,22 @@ public String listado(Model model){
 
     @GetMapping("/modificar/{idProducto}")
     public String productoModificar(Producto producto, Model model) {
+        var categorias = categoriaService.getCategorias(false);
+        model.addAttribute("categorias", categorias); 
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
         return "/producto/modifica";
     }
+    
+    @GetMapping("/vista")
+    public String vista(Model model){
+        var productos = productoService.getProductos(false);
+        model.addAttribute("productos", productos);
+        var categorias = categoriaService.getCategorias(false);
+        model.addAttribute("categorias", categorias);
+
+        return "/producto/vista";
+    }
+    
     
 }
