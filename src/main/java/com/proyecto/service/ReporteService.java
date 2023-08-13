@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
+
 package com.proyecto.service;
 
 import java.io.IOException;
@@ -9,14 +6,12 @@ import java.util.Map;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 
-/**
- *
- * @author abcas
- */
+
+//Este enunciado de método es para emitir un reporte particular en algún formato
 public interface ReporteService {
     public ResponseEntity<Resource> generaReporte (
-        String reporte,
-        Map<String, Object> parametros,
-        String tipo
+        String reporteKada, //Es el mombre del archivo .jasper que se creó anteriormente
+        Map<String, Object> parametros, //parámetros del reporte
+        String tipo //Tipo de archivo generado (pdf, xmls (excel), csv..)
     ) throws IOException;
 }

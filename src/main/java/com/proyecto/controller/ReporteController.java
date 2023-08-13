@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.proyecto.controller;
 
 import com.proyecto.service.ReporteService;
@@ -15,10 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- *
- * @author abcas
- */
 
 @Controller
 @RequestMapping("/reportes")
@@ -33,14 +26,20 @@ public class ReporteController {
     
     @GetMapping("/usuarios")
     public ResponseEntity<Resource> ReporteUsuarios(@RequestParam String tipo) throws IOException{
-        var  reporte = "usuarios";
-        return reporteService.generaReporte(reporte, null, tipo);
+        var  reporteKada = "usuarios";
+        return reporteService.generaReporte(reporteKada, null, tipo);
     }
     
     @GetMapping("/ventas")
     public ResponseEntity<Resource> ReporteVentas(@RequestParam String tipo) throws IOException{
-        var  reporte = "ventas";
-        return reporteService.generaReporte(reporte, null, tipo);
+        var  reporteKada = "ventas";
+        return reporteService.generaReporte(reporteKada, null, tipo);
+    }
+    
+    @GetMapping("/categorias")
+    public ResponseEntity<Resource> ReporteCategorias(@RequestParam String tipo) throws IOException{
+        var  reporteKada = "categorias";
+        return reporteService.generaReporte(reporteKada, null, tipo);
     }
     
     

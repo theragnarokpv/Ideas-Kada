@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.proyecto.service.impl;
 
 import com.proyecto.service.ReporteService;
@@ -26,10 +23,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import static org.springframework.web.servlet.function.RequestPredicates.headers;
 
-/**
- *
- * @author abcas
- */
+
 
 @Service
 public class ReporteServiceImpl implements ReporteService {
@@ -38,7 +32,7 @@ public class ReporteServiceImpl implements ReporteService {
      DataSource datasource;
 
     @Override
-    public ResponseEntity<Resource> generaReporte(String reporte, Map<String, Object> parametros, String tipo) throws IOException {
+    public ResponseEntity<Resource> generaReporte(String reporteKada, Map<String, Object> parametros, String tipo) throws IOException {
         
         
         try {
@@ -56,7 +50,7 @@ public class ReporteServiceImpl implements ReporteService {
             ByteArrayOutputStream salida = new ByteArrayOutputStream();
             
             ClassPathResource fuente = new ClassPathResource(
-                    reportePath + File.separator + reporte + ".jasper"
+                    reportePath + File.separator + reporteKada + ".jasper"
             );
             
             InputStream elReporte = fuente.getInputStream();
@@ -74,7 +68,7 @@ public class ReporteServiceImpl implements ReporteService {
                         JasperExportManager.exportReportToPdfStream(reporteJasper, salida);
                         
                         mediaType=MediaType.APPLICATION_PDF;
-                        archivoSalida = reporte+".pdf";
+                        archivoSalida = reporteKada+".pdf";
                     }
                 }
             }

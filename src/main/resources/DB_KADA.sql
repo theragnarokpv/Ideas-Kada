@@ -6,7 +6,7 @@ CREATE SCHEMA dbkada;
 /*Se crea un usuario para la base de datos llamado "usuario_prueba" y tiene la contraseña "Usuario_Clave."*/
 create user 'usuario_admin'@'%' identified by 'Clave_admin';
 
-/*Se asignan los prvilegios sobr ela base de datos TechShop al usuario creado */
+/*Se asignan los prvilegios sobr ela base de datos Ideas Kada al usuario creado */
 grant all privileges on dbkada.* to 'usuario_admin'@'%';
 flush privileges;
 

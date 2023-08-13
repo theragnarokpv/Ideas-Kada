@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row"></div>
             <div class="row row-cols-6">
-                <a th:href="@{/}" class="btn btn-primary">
+                <a th:href="@{/}" class="btn btn-primary"> <!-- Botón de regresar -->
                     <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                 </a>
             </div>
@@ -22,7 +22,7 @@
         <div class="row row-cols-3">
             <div class="card">
                 <div class="card-header text center">
-                    Reporte Clientes
+                    Reporte Usuarios
                 </div>
                 <div class="card-body">
                     <a th:href="@{/reportes/usuarios?tipo=vPdf}" class="btn btn-primary">
@@ -31,6 +31,13 @@
                     <a th:href="@{/reportes/usuarios?tipo=vPdf}" class="btn btn-success">
                         <i class="fas fa-download"></i> <i class="fas fa-file-pdf"></i> 
                     </a>
+                    <a th:href="@{/reportes/usuarios?tipo=Xls}" class="btn btn-warning"> <!--Botón EXCEL -->
+                        <i class="fas fa-download"></i> <i class="fas fa-file-excel"></i> 
+                    </a>
+                    <a th:href="@{/reportes/usuarios?tipo=Csv}" class="btn btn-danger"> <!-- Botón CSV -->
+                        <i class="fas fa-download"></i> <i class="fas fa-file-csv"></i> 
+                    </a>
+                    
                     
                 </div>
             </div>
@@ -49,6 +56,21 @@
                     
                 </div>
             </div>
+                   <div class="card">
+                <div class="card-header text center">
+                    Reporte Categorias
+                </div>
+                <div class="card-body">
+                    <a th:href="@{/reportes/categorias?tipo=vPdf}" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> <i class="fas fa-file-pdf"></i> 
+                    </a>
+                    <a th:href="@{/reportes/categorias?tipo=vPdf}" class="btn btn-success">
+                        <i class="fas fa-download"></i> <i class="fas fa-file-pdf"></i> 
+                    </a>
+                    
+                </div>
+            </div>
+            
         </div>
         
         <footer th:replace="~{layouts/plantilla :: footer}">
