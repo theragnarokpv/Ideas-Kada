@@ -38,5 +38,9 @@ public class Pedido implements Serializable{
     private String rutaImagen;
     private boolean activo;
 
+    @ManyToOne
+    @JoinColumn(name="pedido")
+    Tipo tipo;
+
 
 }

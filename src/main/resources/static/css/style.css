@@ -191,3 +191,63 @@ body {
     margin-right: 30px;
     font-size: 120px;
 }
+
+/*******************LOGIN************************/
+#group_tit_login{
+    margin-bottom: 50px;
+}
+
+#tit_login{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#img_login{
+    margin-bottom: 5px;
+}
+
+#btn_register{
+    margin-left: 40px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.log_text{
+    font-size: 25px;
+}
+
+.group_log{
+    margin-bottom: 35px;
+}
+
+.fas{
+    margin-right: 10px;
+}
+
+/*******************PEDIDOS************************/
+#text_ped{
+    margin-bottom: 25px;
+}
+
+#ped_detalle{
+    height: 100px;
+}
+
+#tit_imagen{
+    width: 310px;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+#btn_img{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    width: 250px;
+}
+
+#btn_regresar{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -18,39 +18,40 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/pedido")
 public class PedidoController {
     
-@Autowired
-private PedidoService pedidoService;
+    @Autowired
+    private PedidoService pedidoService;
 
-@Autowired
-private TipoService tipoService;
+    @Autowired 
+    private TipoService tipoService;
 
-@GetMapping("/listado")
-public String listado(Model model){
-    var pedidos = pedidoService.getPedidos(false);
-    model.addAttribute("pedidos", pedidos);
-    var tipos = tipoService.getTipos(false);
-    model.addAttribute("tipos", tipos);
-    model.addAttribute("totalPedidos", pedidos.size());
-    
-    return "/pedido/listado";
-}
+    @GetMapping("/listado")
+    public String listado(Model model){
+        var pedidos = pedidoService.getPedidos(false);
+        model.addAttribute("pedidos", pedidos);
+        var tipos = tipoService.getTipos(false);
+        model.addAttribute("tipos", tipos);
+        
+        return "/pedido/listado";
+    }
 
-@GetMapping("/nuevo")
-    public String productoNuevo(Pedido pedido) {
+    @GetMapping("/nuevo")
+    public String pedidoNuevo(Pedido pedido) {
         return "/pedido/modifica";
     }
 
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
 
-    @GetMapping("/eliminar/{idProducto}")
-    public String productoEliminar(Pedido pedido) {
+    @GetMapping("/eliminar/{idPedido}")
+    public String pedidoEliminar(Pedido pedido) {
         pedidoService.delete(pedido);
         return "redirect:/pedido/listado";
     }
 
-    @GetMapping("/modificar/{idProducto}")
-    public String productoModificar(Pedido pedido, Model model) {
+    @GetMapping("/modificar/{idPedido}")
+    public String pedidoModificar(Pedido pedido, Model model) {
+        var tipos = tipoService.getTipos(false);
+        model.addAttribute("tipos", tipos);
         pedido = pedidoService.getPedido(pedido);
         model.addAttribute("pedido", pedido);
         return "/pedido/modifica";
@@ -58,18 +59,18 @@ public String listado(Model model){
     
 
 
-@GetMapping("/orden")
+    @GetMapping("/orden")
     public String pedidoNuevo(Pedido pedido, Model model) {
         var tipos = tipoService.getTipos(false);
         model.addAttribute("tipos", tipos);
-
         return "/pedido/orden";
     }
 
 
     @PostMapping("/guardar")
-    public String productoGuardar(Pedido pedido,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {        
+    public String pedidoGuardar(Pedido pedido, @RequestParam("imagenFile") MultipartFile imagenFile) {        
+
+        
         if (!imagenFile.isEmpty()) {
             pedidoService.save(pedido);
             pedido.setRutaImagen(
