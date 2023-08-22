@@ -106,11 +106,16 @@ INSERT INTO dbkada.categoria (id_categoria,descripcion,activo) VALUES
 
 /*Se insertan 4 productos por categoria */
 INSERT INTO dbkada.producto (id_producto,id_categoria,descripcion,ruta_imagen,activo) VALUES
-(1,1,'Demon Slayer','https://cdn.discordapp.com/attachments/1132040104370769920/1132040131352723627/2872.png',true),
-(2,2,'Demon Slayer','https://cdn.discordapp.com/attachments/1132040104370769920/1132040131352723627/2872.png',true),
-(3,3,'Demon Slayer','https://cdn.discordapp.com/attachments/1132040104370769920/1132040131352723627/2872.png',true),
-(4,4,'Demon Slayer','https://cdn.discordapp.com/attachments/1132040104370769920/1132040131352723627/2872.png',true),
-(5,5,'Demon Slayer','https://cdn.discordapp.com/attachments/1132040104370769920/1132040131352723627/2872.png',true);
+(1,1,'Tanjiro (Demon Slayer)','https://cdn.discordapp.com/attachments/1132040104370769920/1143589735047123057/Libro1.png',true),
+(2,2,'Mar','https://cdn.discordapp.com/attachments/1132040104370769920/1143590676395741346/Libro2.png',true),
+(3,3,'Elefante','https://cdn.discordapp.com/attachments/1132040104370769920/1132040131352723627/2872.png',true),
+(4,4,'Mario Bros','https://cdn.discordapp.com/attachments/1132040104370769920/1143591679815847956/Libro3.png',true),
+(5,5,'Juez Juan','https://cdn.discordapp.com/attachments/1132040104370769920/1143592868154441818/Libro5.png',true),
+(6,1,'Naruto','https://cdn.discordapp.com/attachments/1132040104370769920/1143593930240307250/Libro6.png',true),
+(7,2,'Espacio','https://cdn.discordapp.com/attachments/1132040104370769920/1143594607502966915/Libro7.png',true),
+(8,3,'Auroleas Boreales','https://cdn.discordapp.com/attachments/1132040104370769920/1143595328235372605/Libro8.png',true),
+(9,4,'Halo','https://cdn.discordapp.com/attachments/1132040104370769920/1143596077333884959/Libro19.png',true),
+(10,5,'Ing Marco','https://cdn.discordapp.com/attachments/1132040104370769920/1143598170379669514/Libro10.png',true);
 
 insert into dbkada.rol (id_rol, nombre, id_usuario) values
  (1,'ROLE_ADMIN',1), (2,'ROLE_VENDEDOR',1), (3,'ROLE_USER',1),
@@ -121,4 +126,8 @@ insert into dbkada.rol (id_rol, nombre, id_usuario) values
  (1,'Planificador',true), (2,'Agenda',true), (3,'Cuaderno',true);
  
  INSERT INTO dbkada.pedido (id_pedido,nombre,pedido,descripcion,telefono,correo_elec,ruta_imagen,activo) VALUES
-(1,'Karen Ruiz',2,'Quiero un libro con la tematica parecida a la foto en caso de que la imagen no de lo suficiente.','8888-8888','kruiz@hotmail.com','https://cdn.discordapp.com/attachments/1132040104370769920/1132040131352723627/2872.png',true);
+(1,'Karen Ruiz',1,'Quiero un planificador con la tematica parecida a la foto en caso de que la imagen no de lo suficiente.','8888-8888','kruiz@hotmail.com','https://fondosmil.com/fondo/20628.jpg',true),
+(2,'Roberto Gonzales',2,'Necesito una agenda me gustaria que fuera relacionado a los astronautas, esta imagen es de referencia.','7777-7777','rgonza@hotmail.com','https://img.freepik.com/fotos-premium/fondo-pantalla-astronauta-fondo-pantalla-iphone_884500-1616.jpg?w=2000',true),
+(3,'Juan Mendez',3,'La imagen puede ser de naturo y lo quiero sin nombre.','6666-6666','JMendez@hotmail.com','https://i.pinimg.com/originals/f3/97/8c/f3978c4ce56a1691de3d68ed1527502f.jpg',true),
+(4,'Pedro Sanchez',1,'Me gustaria que la imagen sea de mi hija, y ponerle mi nombre.','8888-8888','psanchez@hotmail.com','https://cdn.grupoelcorteingles.es/statics/manager/contents/images/uploads/2023/04/SkG-BXmrG3.jpeg',true),
+(5,'Maria Leiton',3,'Una foto de mi mascota.','6666-6666','mleiton@hotmail.com','https://www.thesprucepets.com/thmb/hxWjs7evF2hP1Fb1c1HAvRi_Rw0=/2765x0/filters:no_upscale():strip_icc()/chinese-dog-breeds-4797219-hero-2a1e9c5ed2c54d00aef75b05c5db399c.jpg',true);

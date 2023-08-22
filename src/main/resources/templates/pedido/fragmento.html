@@ -80,7 +80,7 @@
                                 </div>
     
                                 <div class="col-md-3">
-                                    <img id="blah" th:src="@{${pedido.rutaImagen}}" alt="your image" height="200"/>
+                                    <img id="blah" th:src="@{${pedido.rutaImagen}}" alt="your image" width="300" height="200"/>
                                 </div>
                             </div>
                         </div>
@@ -100,6 +100,9 @@
                 <div class="col-md-8">
                     <a id="btn_regresar" th:href="@{/pedido/listado}" class="btn btn-primary">
                         <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                    </a>
+                    <a id="btn_regresar" th:href="@{/pedido/eliminar/}+${pedido.idPedido}" class="btn btn-primary">
+                        <i class="bi bi-check"></i> Procesado
                     </a>
                     <form method="POST"
                           th:object="${pedido}"

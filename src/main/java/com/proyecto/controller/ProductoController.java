@@ -1,6 +1,7 @@
 
 package com.proyecto.controller;
 
+import com.proyecto.domain.Categoria;
 import com.proyecto.domain.Producto;
 import com.proyecto.service.ProductoService;
 import com.proyecto.service.CategoriaService;
@@ -81,6 +82,16 @@ public String listado(Model model){
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
 
+        return "/producto/vista";
+    }
+    
+    @GetMapping("/vista/{idCategoria}")
+    public String listado(Categoria categoria, Model model) {
+        var productos = categoriaService.getCategoria(categoria).getProductos();
+        model.addAttribute("productos", productos);
+        var categorias = categoriaService.getCategorias(false);
+        model.addAttribute("categorias", categorias);
+        model.addAttribute("totalProductos", productos.size());
         return "/producto/vista";
     }
     
