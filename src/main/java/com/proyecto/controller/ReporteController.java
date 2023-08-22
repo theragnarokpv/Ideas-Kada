@@ -24,9 +24,9 @@ public class ReporteController {
         return "/reportes/principal";
     }
     
-    @GetMapping("/usuarios")
+    @GetMapping("/usuario")
     public ResponseEntity<Resource> ReporteUsuarios(@RequestParam String tipo) throws IOException{
-        var  reporteKada = "usuarios";
+        var  reporteKada = "usuario";
         return reporteService.generaReporte(reporteKada, null, tipo);
     }
     
